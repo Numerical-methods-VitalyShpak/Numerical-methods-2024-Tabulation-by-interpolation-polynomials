@@ -1,40 +1,26 @@
-﻿// LaboratoryCHM.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include "Implementation_laboratory.hpp"
 
-#include <iostream>
-#include "Task1.h"
-#include <vector>
-
-std::vector<float> ReadInfo() 
+void FubctionForOtchet() 
 {
-	float beginPoint, endPoint, countInterval;
-	std::cout << "Set begin point = ";
-	std::cin >> beginPoint;
-	std::cout << "Set end point = ";
-	std::cin >> endPoint;
-	std::cout << "Set count interval = ";
-	std::cin >> countInterval;
-	std::vector<float> result;
-	result.push_back(beginPoint);
-	result.push_back(endPoint);
-	result.push_back(countInterval);
-	return result;
+	std::vector<float> data = Get_Info();
+	Write_M("F_R.txt", Function_Nodes_Row(data));//вычисление функции
+	Write_M("F_C.txt", Function_Nodes_Cheb(data));
+	Write_M("I_L_R.txt", Function_Lagrange_Row(data));//Интерполяциия
+	Write_M("I_L_C.txt", Function_Lagrange_Cheb(data));
+	Write_M("I_N_R.txt", Function_Newton_Row(data));
+	Write_M("I_N_C.txt", Function_Nodes_Cheb(data));
+	Write_M("P_L_R.txt", Pogreshnost_Lagrange_Row(data));//погрешности
+	Write_M("P_L_C.txt", Pogreshnost_Lagrange_Cheb(data));
+	Write_M("P_N_R.txt", Pogreshnost_Newton_Row(data));
+	Write_M("P_N_C.txt", Pogreshnost_Newton_Cheb(data));
+	Write_P("E_L_R.txt", Experiment_Lagrange_Row(data));//эксперименты
+	Write_P("E_L_C.txt", Experiment_Lagrange_Cheb(data));
+	Write_P("E_N_R.txt", Experiment_Newton_Row(data));
+	Write_P("E_N_C.txt", Experiment_Newton_Cheb(data));
 }
 
 int main()
 {
-	Tasks a;
-	a.GetTask1();
-	a.GetTask2();
+	FubctionForOtchet();
+	system("python function_graf.py");
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.

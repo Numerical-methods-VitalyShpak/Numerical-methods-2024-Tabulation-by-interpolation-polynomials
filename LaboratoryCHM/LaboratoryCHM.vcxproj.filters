@@ -18,19 +18,33 @@
     <ClCompile Include="LaboratoryCHM.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Task1.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="tasks.cpp">
+    <ClCompile Include="Implementation_laboratory.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Task1.h">
+    <ClInclude Include="Implementation_laboratory.hpp">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="tasks.h">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="function_graf.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="I_N_R.txt" />
+    <Text Include="I_N_C.txt" />
+    <Text Include="I_L_R.txt" />
+    <Text Include="I_L_C.txt" />
+    <Text Include="F_R.txt" />
+    <Text Include="E_N_R.txt" />
+    <Text Include="E_N_N.txt" />
+    <Text Include="E_L_R.txt" />
+    <Text Include="E_L_C.txt" />
+    <Text Include="P_L_C.txt" />
+    <Text Include="P_L_R.txt" />
+    <Text Include="P_N_C.txt" />
+    <Text Include="P_N_R.txt" />
+    <Text Include="F_C.txt" />
+    <Text Include="E_N_C.txt" />
   </ItemGroup>
 </Project>
