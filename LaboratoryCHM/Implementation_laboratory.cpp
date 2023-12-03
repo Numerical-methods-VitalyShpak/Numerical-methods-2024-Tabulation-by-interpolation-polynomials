@@ -348,6 +348,20 @@ std::vector<std::vector<float>> Function_Nodes_Cheb(std::vector<float> data)
 	return tabulate_polinom;
 }
 
+std::vector<std::vector<float>> Function_Nodes_Row_2(std::vector<float> data)
+{
+	std::vector<float> nodes = Get_Nodes_Row(data[0], data[1], data[3]);//получили разбиение отрезка
+	std::vector<std::vector<float>> tabulate_polinom = Tabulate(nodes);//протабулировали
+	return tabulate_polinom;
+}
+
+std::vector<std::vector<float>> Function_Nodes_Cheb_2(std::vector<float> data)
+{
+	std::vector<float> nodes = Get_Nodes_Cheb(data[0], data[1], data[3]);//получили разбиение отрезка
+	std::vector<std::vector<float>> tabulate_polinom = Tabulate(nodes);//протабулировали
+	return tabulate_polinom;
+}
+
              ////////////////////Интерполирование Функции///////////////////////////////////
 
 std::vector<std::vector<float>> Function_Lagrange_Row(std::vector<float> data)
@@ -381,7 +395,7 @@ std::vector<std::vector<float>> Function_Newton_Cheb(std::vector<float> data)
 {
 	std::vector<float> nodes = Get_Nodes_Cheb(data[0], data[1], data[2]);//получили разбиение отрезка
 	std::vector<std::vector<float>> tabulate_polinom = Tabulate(nodes);//протабулировали
-	std::vector<float> points_interpolate = Get_Nodes_Row(data[0], data[1], data[3]);//получили разбиение для интерполяции
+	std::vector<float> points_interpolate = Get_Nodes_Cheb(data[0], data[1], data[3]);//получили разбиение для интерполяции
 	std::vector<std::vector<float>> interpolate_polinom = Newton_interpolate(tabulate_polinom, points_interpolate);//проинтерполировали
 	return interpolate_polinom;
 }
@@ -408,6 +422,7 @@ std::vector<std::vector<float>> Pogreshnost_Lagrange_Cheb(std::vector<float> dat
 	std::vector<std::vector<float>> interpolate_polinom = Lagrange_interpolate(tabulate_polinom, points_interpolate);//проинтерполировали
 	nodes = Get_Nodes_Cheb(data[0], data[1], data[3]);//получили разбиение для протабулированного полинома для вычисления погрешности
 	tabulate_polinom = Tabulate(nodes);//получили протабулированный полином для вычисления погрешности
+	//std::reverse(tabulate_polinom[1].begin(), tabulate_polinom[1].end());
 	std::vector<std::vector<float>> pogreshnost = Get_Pogreshnost(tabulate_polinom, interpolate_polinom);
 	return pogreshnost;
 }
@@ -422,18 +437,17 @@ std::vector<std::vector<float>> Pogreshnost_Newton_Row(std::vector<float> data)
 	tabulate_polinom = Tabulate(nodes);//получили протабулированный полином для вычисления погрешности
 	std::vector<std::vector<float>> pogreshnost = Get_Pogreshnost(tabulate_polinom, interpolate_polinom);
 	return pogreshnost;
-	return interpolate_polinom;
 }
 
 std::vector<std::vector<float>> Pogreshnost_Newton_Cheb(std::vector<float> data)
 {
 	std::vector<float> nodes = Get_Nodes_Cheb(data[0], data[1], data[2]);//получили разбиение отрезка
 	std::vector<std::vector<float>> tabulate_polinom = Tabulate(nodes);//протабулировали
-	std::vector<float> points_interpolate = Get_Nodes_Row(data[0], data[1], data[3]);//получили разбиение для интерполяции
+	std::vector<float> points_interpolate = Get_Nodes_Cheb(data[0], data[1], data[3]);//получили разбиение для интерполяции
 	std::vector<std::vector<float>> interpolate_polinom = Newton_interpolate(tabulate_polinom, points_interpolate);//проинтерполировали
 	nodes = Get_Nodes_Cheb(data[0], data[1], data[3]);//получили разбиение для протабулированного полинома для вычисления погрешности
 	tabulate_polinom = Tabulate(nodes);//получили протабулированный полином для вычисления погрешности
+	//std::reverse(tabulate_polinom[1].begin(), tabulate_polinom[1].end());
 	std::vector<std::vector<float>> pogreshnost = Get_Pogreshnost(tabulate_polinom, interpolate_polinom);
 	return pogreshnost;
-	return interpolate_polinom;
 }

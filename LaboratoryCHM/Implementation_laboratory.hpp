@@ -62,6 +62,10 @@ std::vector<std::vector<float>> Function_Nodes_Row(std::vector<float> data);
 
 std::vector<std::vector<float>> Function_Nodes_Cheb(std::vector<float> data);
 
+std::vector<std::vector<float>> Function_Nodes_Row_2(std::vector<float> data);
+
+std::vector<std::vector<float>> Function_Nodes_Cheb_2(std::vector<float> data);
+
 ////////////////////Интерполирование Функции///////////////////////////////////
 
 std::vector<std::vector<float>> Function_Lagrange_Row(std::vector<float> data);
